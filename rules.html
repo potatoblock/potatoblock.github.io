@@ -5,69 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potatoblock - 游戏规则</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            color: #ffffff;
-            background-color: #000000;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
+        /* 顶部黑底白字样式 */
+        .header {
             background: #000000;
+            color: #ffffff;
             padding: 20px 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            color: #ffffff;
+        /* 主体白底黑字样式 */
+        .content {
+            background: #ffffff;
+            color: #000000;
+            padding: 20px;
         }
-        nav {
-            background: #000000;
-            padding: 10px 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            color: #cccccc;
-        }
-        .main-section {
-            padding: 20px 0;
-        }
-        .main-section h1 {
-            text-align: center;
-            font-size: 36px;
-        }
-        .main-section p {
-            text-align: justify;
-            line-height: 1.6;
-        }
-        .rules-list {
-            list-style: decimal;
-            padding-left: 20px;
-        }
-        .rules-list li {
-            margin-bottom: 10px;
-        }
-        footer {
+        /* 底部黑底白字样式 */
+        .footer {
             background: #000000;
             color: #ffffff;
             text-align: center;
@@ -76,50 +28,6 @@
             bottom: 0;
             width: 100%;
         }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Potatoblock - 游戏规则</h1>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="join.html">加入游戏</a></li>
-                <li><a href="rules.html">游戏规则</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="main-section">
-        <div class="container">
-            <h1>Potatoblock 游戏规则</h1>
-            <p>为了确保所有玩家都能享受公平、愉快的游戏体验，请遵守以下规则：</p>
-            <ul class="rules-list">
-                <li>禁止使用作弊软件</li>
-                <li>禁止聊天栏刷屏</li>
-                <li>禁止非法摄取OP管理员权限</li>
-                <li>禁止使用法定货币交易游戏内道具</li>
-                <li>禁止赌、毒行为</li>
-                <li>禁止私自刷取非法附魔道具（不包括服务器官方渠道获得的道具）</li>
-            </ul>
-            <p>服务器内有机器人，将自动检测违规行为并踢出玩家。请遵守规则，共同维护一个良好的游戏环境。</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Potatoblock. All rights reserved.</p>
-        </div>
-        .main-section p {
-            text-align: justify;
-            line-height: 1.6;
-        }
         .rules-list {
             list-style: decimal;
             padding-left: 20px;
@@ -127,54 +35,27 @@
         .rules-list li {
             margin-bottom: 10px;
         }
-        footer {
-            background: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Potatoblock - 游戏规则</h1>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="join.html">加入游戏</a></li>
-                <li><a href="rules.html">游戏规则</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="main-section">
-        <div class="container">
-            <h1>Potatoblock 游戏规则</h1>
-            <p>为了确保所有玩家都能享受公平、愉快的游戏体验，请遵守以下规则：</p>
-            <ul class="rules-list">
-                <li>禁止使用作弊软件</li>
-                <li>禁止聊天栏刷屏</li>
-                <li>禁止非法摄取OP管理员权限</li>
-                <li>禁止使用法定货币交易游戏内道具</li>
-                <li>禁止赌、毒行为</li>
-                <li>禁止私自刷取非法附魔道具（不包括服务器官方渠道获得的道具）</li>
-            </ul>
-            <p>服务器内有机器人，将自动检测违规行为并踢出玩家。请遵守规则，共同维护一个良好的游戏环境。</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Potatoblock. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="header">
+        <h1>Potatoblock - 游戏规则</h1>
+    </div>
+    <div class="content">
+        <h1>Potatoblock 游戏规则</h1>
+        <p>为了确保所有玩家都能享受公平、愉快的游戏体验，请遵守以下规则：</p>
+        <ul class="rules-list">
+            <li>禁止使用作弊软件</li>
+            <li>禁止聊天栏刷屏</li>
+            <li>禁止非法摄取OP管理员权限</li>
+            <li>禁止使用法定货币交易游戏内道具</li>
+            <li>禁止赌、毒行为</li>
+            <li>禁止私自刷取非法附魔道具（不包括服务器官方渠道获得的道具）</li>
+        </ul>
+        <p>服务器内有机器人，将自动检测违规行为并踢出玩家。请遵守规则，共同维护一个良好的游戏环境。</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Potatoblock. All rights reserved.</p>
+    </div>
 </body>
+</html>
