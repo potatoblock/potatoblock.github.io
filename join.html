@@ -11,6 +11,7 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         /* 主体白底黑字样式 */
         .content {
@@ -27,19 +28,35 @@
             position: absolute;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
         }
-        .join-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 20px 0;
-            background-color: #ffffff;
-            color: #000000;
+        .main-section {
+            padding: 20px 0;
+        }
+        .main-section h1 {
+            text-align: center;
+            font-size: 36px;
+        }
+        .main-section p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+        /* 导航栏样式 */
+        .navbar {
+            background: #000000;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
-        .join-button:hover {
-            background-color: #cccccc;
+        .navbar a:hover {
+            background: #dddddd;
+            color: #000000;
         }
     </style>
 </head>
@@ -47,14 +64,13 @@
     <div class="header">
         <h1>Potatoblock - 加入游戏</h1>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="rules.html">游戏规则</a></li>
-        </ul>
-    </nav>
-    <div class="content">
+    <div class="navbar">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="join.html">加入游戏</a>
+        <a href="rules.html">游戏规则</a>
+    </div>
+    <div class="main-section">
         <h1>加入 Potatoblock 的世界</h1>
         <p>想要加入我们的服务器，体验独一无二的生存+RPG游戏体验吗？只需点击下面的按钮，即可直接加入我们的服务器。</p>
         <a href="https://mc.163.com/pe/startup/?id=netease&param=%7B%22from%22%3A%22rentGame%22%2C%22id%22%3A%224668793294462457622%22%7D&traceid=tra_69TmLjVb54&p_spanid=0.CUEkD&c_spanid=0.CUEkD" class="join-button">加入服务器</a>
