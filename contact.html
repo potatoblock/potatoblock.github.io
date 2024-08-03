@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系 - PotatoBlock</title>
+    <style>
+        /* 重复之前的样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #50b3a2;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #main {
+            padding: 20px 0;
+        }
+        .contact-content {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            margin-top: 20px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        .contact-form textarea {
+            height: 100px;
+        }
+        .contact-form input[type="submit"] {
+            background: #50b3a2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .contact-form input[type="submit"]:hover {
+            background: #e8491d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>PotatoBlock</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="services.html">服务</a></li>
+                    <li class="current"><a href="contact.html">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="main" class="contact-content">
+            <h1>联系我们</h1>
+            <p>如果您有任何问题或需要进一步的信息，请通过以下方式与我们联系。</p>
+            
+            <div class="contact-info">
+                <h2>联系方式</h2>
+                <p>邮箱: contact@potatoblock.com</p>
+                <p>电话: +86 123 4567 8901</p>
+                <p>地址: 中国北京市</p>
+            </div>
+            
+            <div class="contact-form">
+                <h2>发送消息</h2>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="您的姓名" required>
+                    <input type="email" name="email" placeholder="您的邮箱" required>
+                    <textarea name="message" placeholder="您的消息" required></textarea>
+                    <input type="submit" value="发送">
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer">
+        <p>&copy; 2024 PotatoBlock. All rights reserved.</p>
+    </footer>
+</body>
+</html>
