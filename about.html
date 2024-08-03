@@ -25,8 +25,8 @@
             color: #ffffff;
             text-align: center;
             padding: 10px 0;
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            bottom: 200px; /* 将底部向下移动100px */
             width: 100%;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
         }
@@ -41,13 +41,22 @@
             text-align: justify;
             line-height: 1.6;
         }
-        .contact-info {
-            margin-top: 20px;
+        /* 导航栏样式 */
+        .navbar {
+            background: #000000;
+            overflow: hidden;
         }
-        .contact-info a {
+        .navbar a {
+            float: left;
+            display: block;
             color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
-            margin-right: 10px;
+        }
+        .navbar a:hover {
+            background: #dddddd;
+            color: #000000;
         }
     </style>
 </head>
@@ -55,14 +64,12 @@
     <div class="header">
         <h1>Potatoblock - 关于我们</h1>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="join.html">加入游戏</a></li>
-            <li><a href="rules.html">游戏规则</a></li>
-        </ul>
-    </nav>
+    <div class="navbar">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="join.html">加入游戏</a>
+        <a href="rules.html">游戏规则</a>
+    </div>
     <div class="main-section">
         <h1>关于 Potatoblock</h1>
         <p>Potatoblock 是一个由一群热情的《我的世界》玩家创建和运营的租赁服。我们致力于为玩家提供一个独特的生存+RPG游戏体验，这是我们在游戏社区中的首创。</p>
