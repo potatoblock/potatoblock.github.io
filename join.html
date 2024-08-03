@@ -5,60 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potatoblock - 加入游戏</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            color: #ffffff;
-            background-color: #000000;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
+        /* 顶部黑底白字样式 */
+        .header {
             background: #000000;
+            color: #ffffff;
             padding: 20px 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            color: #ffffff;
+        /* 主体白底黑字样式 */
+        .content {
+            background: #ffffff;
+            color: #000000;
+            padding: 20px;
         }
-        nav {
+        /* 底部黑底白字样式 */
+        .footer {
             background: #000000;
+            color: #ffffff;
+            text-align: center;
             padding: 10px 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        nav a:hover {
-            color: #cccccc;
-        }
-        .main-section {
-            padding: 20px 0;
-        }
-        .main-section h1 {
-            text-align: center;
-            font-size: 36px;
-        }
-        .main-section p {
-            text-align: justify;
-            line-height: 1.6;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
         .join-button {
             display: inline-block;
@@ -73,48 +41,20 @@
         .join-button:hover {
             background-color: #cccccc;
         }
-        footer {
-            background: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Potatoblock - 加入游戏</h1>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="join.html">加入游戏</a></li>
-                <li><a href="rules.html">游戏规则</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="main-section">
-        <div class="container">
-            <h1>加入 Potatoblock 的世界</h1>
-            <p>想要加入我们的服务器，体验独一无二的生存+RPG游戏体验吗？只需点击下面的按钮，即可直接加入我们的服务器。</p>
-            <a href="https://mc.163.com/pe/startup/?id=netease¶m=%7B%22from%22%3A%22rentGame%22%2C%22id%22%3A%224668793294462457622%22%7D&traceid=tra_69TmLjVb54&p_spanid=0.CUEkD&c_spanid=0.CUEkD" class="join-button">加入服务器</a>
-            <p>服务器号：53308656</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Potatoblock. All rights reserved.</p>
-        </div>
-    </footer>
+    <div class="header">
+        <h1>Potatoblock - 加入游戏</h1>
+    </div>
+    <div class="content">
+        <h1>加入 Potatoblock 的世界</h1>
+        <p>想要加入我们的服务器，体验独一无二的生存+RPG游戏体验吗？只需点击下面的按钮，即可直接加入我们的服务器。</p>
+        <a href="https://mc.163.com/pe/startup/?id=netease&param=%7B%22from%22%3A%22rentGame%22%2C%22id%22%3A%224668793294462457622%22%7D&traceid=tra_69TmLjVb54&p_spanid=0.CUEkD&c_spanid=0.CUEkD" class="join-button">加入服务器</a>
+        <p>服务器号：53308656</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Potatoblock. All rights reserved.</p>
+    </div>
 </body>
 </html>
