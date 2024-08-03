@@ -11,6 +11,7 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         /* 主体白底黑字样式 */
         .content {
@@ -27,6 +28,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
         }
         .main-section {
             padding: 20px 0;
@@ -39,20 +41,35 @@
             text-align: justify;
             line-height: 1.6;
         }
+        /* 导航栏样式 */
+        .navbar {
+            background: #000000;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background: #dddddd;
+            color: #000000;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Potatoblock</h1>
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="join.html">加入游戏</a></li>
-            <li><a href="rules.html">游戏规则</a></li>
-        </ul>
-    </nav>
+    <div class="navbar">
+        <a href="index.html">首页</a>
+        <a href="about.html">关于我们</a>
+        <a href="join.html">加入游戏</a>
+        <a href="rules.html">游戏规则</a>
+    </div>
     <div class="main-section">
         <h1>欢迎来到Potatoblock</h1>
         <p>Potatoblock是一个由网易我的世界租赁服运营组织精心打造的独特游戏世界。我们自豪地宣布，Potatoblock是全网首个将生存与RPG完美融合的创新题材服务器，为您带来前所未有的游戏盛宴。</p>
