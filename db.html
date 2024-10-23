@@ -97,112 +97,132 @@ Content-Type: application/json
 }
         </pre>
 
-        <h2>2. 获取数据</h2>
-        
-        <p><strong>请求方法：</strong>GET</p>
-        <p><strong>请求路径：</strong>/get?key=YOUR_KEY</p>
-        
-        <h3>请求头：</h3>
+        <!-- 添加 Lua 示例 -->
+        <h2>Lua 示例代码</h2>
+        <p>以下是如何在 Lua 中调用 PotatoDB API 的示例代码：</p>
+
+        <h3>获取数据</h3>
         <pre class="example-code">
-Authorization: Basic <base64_encoded_credentials>
+-- 获取数据
+local function get_data(key)
+    local url = "http://<username>:<password>@<api-url>/get?key=" .. key
+    local response, error_message = coromega:http_request("GET", url)
+
+    if error_message then
+        print("Error getting data: ", error_message)
+        return nil
+    else
+        if response.status_code == 200 then
+            local result = json.decode(response.body)
+            return result[key]  -- 返回获取的值
+        else
+            print("Error response: ", response.body)
+            return nil
+        end
+    end
+end
         </pre>
 
-        <h3>响应示例：</h3>
+        <h3>设置数据</h3>
         <pre class="example-code">
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "YOUR_KEY": {              // 如果是字典
-        "name": "Alice",
-        "age": 30
+-- 设置数据
+local function set_data(key, value)
+    local url = "http://<username>:<password>@<api-url>/set"
+    local payload = {
+        key = key,
+        value = value
     }
-    // 或者
-    "YOUR_KEY": [1, 2, 3, 4, 5] // 如果是列表
-}
+    local response, error_message = coromega:http_request("POST", url, {
+        body = json.encode(payload)
+    })
+
+    if error_message then
+        print("Error adding data: ", error_message)
+        return nil
+    else
+        if response.status_code == 201 then
+            return true
+        else
+            print("Error response: ", response.body)
+            return false
+        end
+    end
+end
         </pre>
 
-        <h2>3. 删除数据</h2>
-        
-        <p><strong>请求方法：</strong>POST</p>
-        <p><strong>请求路径：</strong>/delete</p>
-        
-        <h3>请求头：</h3>
+        <h3>删除数据</h3>
         <pre class="example-code">
-Content-Type: application/json
-Authorization: Basic <base64_encoded_credentials>
+-- 删除数据
+local function delete_data(key)
+    local url = "http://<username>:<password>@<api-url>/delete"
+    local payload = {
+        key = key
+    }
+    local response, error_message = coromega:http_request("POST", url, {
+        body = json.encode(payload)
+    })
+
+    if error_message then
+        print("Error deleting data: ", error_message)
+        return nil
+    else
+        if response.status_code == 202 then
+            return true
+        else
+            print("Error response: ", response.body)
+            return false
+        end
+    end
+end
         </pre>
 
-        <h3>请求体：</h3>
+        <h3>获取所有数据</h3>
         <pre class="example-code">
-{
-    "key": "YOUR_KEY"           // 替换为要删除的键
-}
+-- 获取所有数据
+local function get_all_data()
+    local url = "http://<username>:<password>@<api-url>/data"
+    local response, error_message = coromega:http_request("GET", url)
+
+    if error_message then
+        print("Error getting all data: ", error_message)
+        return nil
+    else
+        if response.status_code == 200 then
+            local result = json.decode(response.body)
+            return result  -- 返回所有获取到的值
+        else
+            print("Error response: ", response.body)
+            return nil
+        end
+    end
+end
         </pre>
 
-        <h3>响应示例：</h3>
+        <h3>执行 SQL 语句</h3>
         <pre class="example-code">
-HTTP/1.1 202 Accepted
-Content-Type: application/json
+-- 执行 SQL 语句
+local function execute_sql_query(query)
+    local url = "http://<username>:<password>@<api-url>/sql"
+    local payload = {
+        query = query
+    }
+    local response, error_message = coromega:http_request("POST", url, {
+        body = json.encode(payload)
+    })
 
-{
-    "message": "Data deletion successful"
-}
-        </pre>
-
-        <h2>4. 获取所有数据</h2>
-        
-        <p><strong>请求方法：</strong>GET</p>
-        <p><strong>请求路径：</strong>/data</p>
-        
-        <h3>请求头：</h3>
-        <pre class="example-code">
-Authorization: Basic <base64_encoded_credentials>
-        </pre>
-
-        <h3>响应示例：</h3>
-        <pre class="example-code">
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "key1": {                   // 存储的字典
-        "name": "Bob",
-        "age": 25
-    },
-    "key2": [1, 2, 3, 4, 5]     // 存储的列表
-}
-        </pre>
-
-        <h2>5. 执行 SQL 查询</h2>
-        
-        <p><strong>请求方法：</strong>POST</p>
-        <p><strong>请求路径：</strong>/sql</p>
-        
-        <h3>请求头：</h3>
-        <pre class="example-code">
-Content-Type: application/json
-Authorization: Basic <base64_encoded_credentials>
-        </pre>
-
-        <h3>请求体：</h3>
-        <pre class="example-code">
-{
-    "query": "YOUR_SQL_QUERY"   // 替换为实际的 SQL 查询
-}
-        </pre>
-
-        <h3>响应示例：</h3>
-        <pre class="example-code">
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-    "result": [   // 返回查询的结果
-        ["row1_col1", "row1_col2"],
-        ["row2_col1", "row2_col2"]
-    ]
-}
+    if error_message then
+        print("Error executing SQL query: ", error_message)
+        return nil
+    else
+        if response.status_code == 200 then
+            local result = json.decode(response.body)
+            return result.result  -- 返回结果
+        else
+            print("Error response: ", response.body)
+            return nil
+        end
+    end
+end
         </pre>
 
         <h2>友情链接</h2>
