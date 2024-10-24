@@ -204,7 +204,7 @@ Content-Type: application/json
         <pre class="example-code">
 -- 获取数据
 local function get_data(key)
-    local url = "http://<username>:<password>@<api-url>/get?key=" .. key
+    local url = "http://USERNAME:PASSWORD@URL/get?key=" .. key
     local response, error_message = coromega:http_request("GET", url)
 
     if error_message then
@@ -226,7 +226,7 @@ end
         <pre class="example-code">
 -- 设置数据
 local function set_data(key, value)
-    local url = "http://<username>:<password>@<api-url>/set"
+    local url = "http://USERNAME:PASSWORD@URL/set"
     local payload = {
         key = key,
         value = value
@@ -253,7 +253,7 @@ end
         <pre class="example-code">
 -- 删除数据
 local function delete_data(key)
-    local url = "http://<username>:<password>@<api-url>/delete"
+    local url = "http://USERNAME:PASSWORD@URL/delete"
     local payload = {
         key = key
     }
@@ -279,7 +279,7 @@ end
         <pre class="example-code">
 -- 获取所有数据
 local function get_all_data()
-    local url = "http://<username>:<password>@<api-url>/data"
+    local url = "http://USERNAME:PASSWORD@URL/data"
     local response, error_message = coromega:http_request("GET", url)
 
     if error_message then
@@ -301,7 +301,7 @@ end
         <pre class="example-code">
 -- 执行 SQL 查询
 local function execute_sql_query(query)
-    local url = "http://<username>:<password>@<api-url>/sql"
+    local url = "http://USERNAME:PASSWORD@URL/sql"
     local payload = {
         query = query
     }
@@ -329,7 +329,7 @@ end
 
         <h3>1. 设置数据</h3>
         <pre class="example-code">
-curl -X POST http://<api-url>/set \
+curl -X POST http://URL/set \
 -H "Content-Type: application/json" \
 -H "Authorization: Basic <base64_encoded_credentials>" \
 -d '{
@@ -343,13 +343,13 @@ curl -X POST http://<api-url>/set \
 
         <h3>2. 获取数据</h3>
         <pre class="example-code">
-curl -X GET http://<api-url>/get?key=YOUR_KEY \
+curl -X GET http://URL/get?key=YOUR_KEY \
 -H "Authorization: Basic <base64_encoded_credentials>"
         </pre>
 
         <h3>3. 删除数据</h3>
         <pre class="example-code">
-curl -X POST http://<api-url>/delete \
+curl -X POST http://URL/delete \
 -H "Content-Type: application/json" \
 -H "Authorization: Basic <base64_encoded_credentials>" \
 -d '{
@@ -359,13 +359,13 @@ curl -X POST http://<api-url>/delete \
 
         <h3>4. 获取所有数据</h3>
         <pre class="example-code">
-curl -X GET http://<api-url>/data \
+curl -X GET http://URL/data \
 -H "Authorization: Basic <base64_encoded_credentials>"
         </pre>
 
         <h3>5. 执行 SQL 查询</h3>
         <pre class="example-code">
-curl -X POST http://<api-url>/sql \
+curl -X POST http://URL/sql \
 -H "Content-Type: application/json" \
 -H "Authorization: Basic <base64_encoded_credentials>" \
 -d '{
