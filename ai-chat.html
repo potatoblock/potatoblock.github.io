@@ -85,7 +85,7 @@
         function sendJSONPRequest() {
             var message = document.getElementById('message').value;
             var script = document.createElement('script');
-            script.src = 'http://api.potatoblock.asia:1145/?message=' + encodeURIComponent(message) + '&callback=handleResponse';
+            script.src = 'http://api.potatoblock.asia:8000/?message=' + encodeURIComponent(message) + '&callback=handleResponse';
             document.body.appendChild(script);
         }
 
