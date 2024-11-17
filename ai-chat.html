@@ -5,104 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Potatoblock AI Chat</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-
-      .header {
-            background-color: #000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-      .content {
-            background-color: #fff;
-            color: #000;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-      .footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #333;
-        }
-
-        #aiResponse {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>Potatoblock AI Chat</h1>
-    </div>
-    <div class="content">
-        <input type="text" id="message" placeholder="输入消息...">
-        <button onclick="sendMessage()">发送</button>
-        <div id="aiResponse"></div>
-    </div>
-    <div class="footer">
-        <p>限云上之巅内部使用</p>
-    </div>
+    <input type="text" id="message" placeholder="输入消息...">
+    <button onclick="sendJSONPRequest()">发送</button>
+    <div id="aiResponse"></div>
 
     <script>
-        function sendMessage() {
+        function sendJSONPRequest() {
             var message = document.getElementById('message').value;
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://api.potatoblock.asia:1145/", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        var aiMessage = response.choices[0].message.content;
-                        document.getElementById('aiResponse').textContent = aiMessage;
-                    } catch (e) {
-                        console.error("解析后端返回数据出错:", e);
-                        document.getElementById('aiResponse').textContent = "解析后端返回数据出错，请稍后再试。";
-                    }
-                } else if (xhr.readyState === 4) {
-                    console.error("请求后端失败，状态码:", xhr.status);
-                    document.getElementById('aiResponse').textContent = "请求后端失败，请稍后再试。";
-                }
-            };
-            xhr.send("message=" + encodeURIComponent(message));
+            var script = document.createElement('script');
+            script.src = 'http://api.potatoblock.asia:1145/?message=' + encodeURIComponent(message) + '&callback=handleResponse';
+            document.body.appendChild(script);
+        }
+
+        function handleResponse(data) {
+            document.getElementById('aiResponse').textContent = data.choices[0].message.content;
         }
     </script>
 </body>
