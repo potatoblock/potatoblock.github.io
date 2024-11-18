@@ -13,21 +13,21 @@
             padding: 0;
         }
 
-      .header {
+        .header {
             background-color: #000;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
 
-      .content {
+        .content {
             background-color: #fff;
             color: #000;
             padding: 20px;
             margin-top: 20px;
         }
 
-      .footer {
+        .footer {
             background-color: #000;
             color: #fff;
             text-align: center;
@@ -37,12 +37,13 @@
             bottom: 0;
         }
 
-        input[type="text"] {
+        textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
+            resize: vertical; /* 允许垂直缩放 */
         }
 
         button {
@@ -73,7 +74,7 @@
         <h1>Potatoblock AI Chat</h1>
     </div>
     <div class="content">
-        <input type="text" id="message" placeholder="输入消息...">
+        <textarea id="message" placeholder="输入消息..."></textarea>
         <button onclick="sendJSONPRequest()">发送</button>
         <div id="aiResponse"></div>
     </div>
@@ -92,7 +93,8 @@
 
         function handleResponse(data) {
             if (data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
-                document.getElementById('aiResponse').textContent = data.choices[0].message.content;
+                var responseText = data.choices[0].message.content.replace(/\n/g, '<br>');
+                document.getElementById('aiResponse').innerHTML = responseText;
             } else {
                 document.getElementById('aiResponse').textContent = "未获取到有效回复，请稍后再试。";
             }
