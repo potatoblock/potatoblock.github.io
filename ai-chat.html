@@ -110,10 +110,12 @@
             markdown = markdown.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
             markdown = markdown.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
             markdown = markdown.replace(/\n\|\s*(.*?)\s*\|\s*(.*?)\s*\|\n/g, '<table><tr><th>$1</th><th>$2</th></tr></table>');
-            markdown = markdown.replace(/^#+ (.*?)$/g, function(match, p1) {
-                var level = match.trim().length - 1;
-                return '<h' + level + '>' + p1 + '</h' + level + '>';
-            });
+            markdown = markdown.replace(/^#(.*?)$/g, '<h1>$1</h1>');
+            markdown = markdown.replace(/^##(.*?)$/g, '<h2>$1</h2>');
+            markdown = markdown.replace(/^###(.*?)$/g, '<h3>$1</h3>');
+            markdown = markdown.replace(/^####(.*?)$/g, '<h4>$1</h4>');
+            markdown = markdown.replace(/^#####(.*?)$/g, '<h5>$1</h5>');
+            markdown = markdown.replace(/^######(.*?)$/g, '<h6>$1</h6>');
             return markdown;
         }
     </script>
