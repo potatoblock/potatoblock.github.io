@@ -13,21 +13,21 @@
             padding: 0;
         }
 
-      .header {
+        .header {
             background-color: #000;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
 
-      .content {
+        .content {
             background-color: #fff;
             color: #000;
             padding: 20px;
             margin-top: 20px;
         }
 
-      .footer {
+        .footer {
             background-color: #000;
             color: #fff;
             text-align: center;
@@ -43,7 +43,7 @@
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
-            resize: vertical;
+            resize: vertical; /* 允许垂直缩放 */
         }
 
         button {
@@ -79,17 +79,12 @@
         <div id="aiResponse"></div>
         <p>使用模型：gpt-4o-mini</p>
         <p>温馨提示：如果你问了一个问题，AI没有及时回复，那有可能是你的问题有一点难，请给它一点耐心，而不是狂锤发送键。</p>
-        <br>
-        <br>
-        <br>
-        <br>
     </div>
     <div class="footer">
         <p>限云上之巅内部使用</p>
         <p>&copy; 2024 Potatoblock. All rights reserved.</p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         function sendJSONPRequest() {
             var message = document.getElementById('message').value;
@@ -100,12 +95,22 @@
 
         function handleResponse(data) {
             if (data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
-                var responseText = data.choices[0].message.content;
-                var htmlResponse = marked(responseText);
-                document.getElementById('aiResponse').innerHTML = htmlResponse;
+                var responseText = markdownToHtml(data.choices[0].message.content);
+                document.getElementById('aiResponse').innerHTML = responseText;
             } else {
                 document.getElementById('aiResponse').textContent = "未获取到有效回复，请稍后再试。";
             }
+        }
+
+        function markdownToHtml(markdown) {
+            markdown = markdown.replace(/\n/g, '<br>');
+            markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>');
+            markdown = markdown.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            markdown = markdown.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+            markdown = markdown.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
+            markdown = markdown.replace(/\n\|\s*(.*?)\s*\|\s*(.*?)\s*\|\n/g, '<table><tr><th>$1</th><th>$2</th></tr></table>');
+            return markdown;
         }
     </script>
 </body>
