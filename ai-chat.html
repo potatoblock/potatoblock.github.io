@@ -104,8 +104,8 @@
 
         function markdownToHtml(markdown) {
             markdown = markdown.replace(/\n/g, '<br>');
-            markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             markdown = markdown.replace(/`(.*?)`/g, '<code>$1</code>');
+            markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             markdown = markdown.replace(/\*(.*?)\*/g, '<em>$1</em>');
             markdown = markdown.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
             markdown = markdown.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
