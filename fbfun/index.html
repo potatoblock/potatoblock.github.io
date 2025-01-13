@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fastbuilder 纪念图册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .content {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .photo {
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .photo:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px; /* 为图片添加圆角 */
+        }
+
+        .description {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Fastbuilder 纪念图册</h1>
+    </div>
+    <div class="content">
+        <div class="gallery">
+            <div class="photo">
+                <img src="./1.jpg" alt="图片1">
+            </div>
+            <div class="photo">
+                <img src="./2.jpg" alt="图片2">
+            </div>
+            <!-- 添加更多图片 -->
+        </div>
+        <div class="description">
+            <p>永远缅怀 Fastbuilder 。</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Potatoblock. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
