@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotatoblockMC Server Controller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .content {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical; /* 允许垂直缩放 */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        #serverResponse {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Potatoblock Server Controller</h1>
+    </div>
+    <div class="content">
+        <textarea id="cmd" placeholder="输入指令..."></textarea>
+        <button onclick="sendCommand()">发送指令</button>
+        <div id="serverResponse"></div>
+        <p>通过这个页面, 您可以向 53308656 服务器发送指令. </p>
+        <p>辅助用户: 爱生活泰坦123</p>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class="footer">
+        <p>限土豆方块内部使用</p>
+        <p>&copy; 2024 Potatoblock. All rights reserved.</p>
+    </div>
+
+    <script>
+        function sendCommand() {
+            var cmd = document.getElementById('cmd').value;
+            var xhr = new XMLHttpRequest();
+            var url = "http://mc.potatoblock.top:1939/";
+            var data = {
+                "cmd": cmd,
+                "method": "ws",
+                "with_resp": true
+            };
+
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    document.getElementById('serverResponse').textContent = JSON.stringify(json, null, 2);
+                }
+            };
+            xhr.send(JSON.stringify(data));
+        }
+    </script>
+</body>
+
+</html>
