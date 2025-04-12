@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PotatoblockMC Server Controller</title>
+    <title>Potatoblock Server Controller</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,8 +77,8 @@
         <textarea id="cmd" placeholder="输入指令..."></textarea>
         <button onclick="sendCommand()">发送指令</button>
         <div id="serverResponse"></div>
-        <p>通过这个页面, 您可以向 53308656 服务器发送指令. </p>
-        <p>辅助用户: 爱生活泰坦123</p>
+        <p>通过这个页面, 您可以向网易 MC 租赁服 53308656 发送指令.</p>
+        <p>执行者(辅助用户): 爱生活泰坦123</p>
         <br>
         <br>
         <br>
@@ -94,11 +94,7 @@
             var cmd = document.getElementById('cmd').value;
             var xhr = new XMLHttpRequest();
             var url = "http://mc.potatoblock.top:1939/";
-            var data = {
-                "cmd": cmd,
-                "method": "ws",
-                "with_resp": true
-            };
+            var data = '{"cmd":"' + cmd + '","method":"ws","with_resp":true}';
 
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
@@ -108,7 +104,7 @@
                     document.getElementById('serverResponse').textContent = JSON.stringify(json, null, 2);
                 }
             };
-            xhr.send(JSON.stringify(data));
+            xhr.send(data);
         }
     </script>
 </body>
